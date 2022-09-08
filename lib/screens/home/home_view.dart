@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo app'),
+        title: const Text('Slightly Techie Todo App'),
         backgroundColor: const Color(0xFFEC7272),
       ),
       body: Padding(
@@ -53,6 +53,7 @@ class Home extends StatelessWidget {
                           .where((todo) => todo['completed'] == true)
                           .toList()
                           .length;
+                      int totalTodos = todoLists[index]['todos'].length;
                       return InkWell(
                         onTap: () {
                           Navigator.push(
@@ -123,9 +124,9 @@ class Home extends StatelessWidget {
                                           height: 20,
                                           width: 20,
                                           child: CircularProgressIndicator(
-                                            value: 0.5,
+                                            value: completedCount/totalTodos,
                                             strokeWidth: 2,
-                                            color: const Color(0xFFEC7272),
+                                            color: completedCount == totalTodos ? Colors.green : const Color(0xFFEC7272),
                                             backgroundColor:
                                                 Colors.grey.withOpacity(0.5),
                                           ),
@@ -133,8 +134,7 @@ class Home extends StatelessWidget {
                                         const SizedBox(
                                           height: 5,
                                         ),
-                                        Text(
-                                            '$completedCount/${todoLists[index]['todos'].length}')
+                                        Text('$completedCount/$totalTodos')
                                       ],
                                     ),
                                   ],
