@@ -115,7 +115,7 @@ class Home extends StatelessWidget {
                                             fontSize: 18,
                                           ),
                                         ),
-                                        Text(Jiffy(DateTime.now()).yMMMMd),
+                                        // Text(Jiffy(DateTime.now()).yMMMMd),
                                       ],
                                     ),
                                     Column(
